@@ -12,11 +12,11 @@ This script preprocesses stock data obtained from Nasdaq.com by performing sever
   - Finally, it saves the processed dataset to the specified output path.
   
  Adjustable hyperparameters via argparse:
-  --verbose: (int) Controls the level of console output for visualization.
-  --revert_order: (bool) If True, sorts the dataset by date in ascending order.
-  --convert_to_float: (bool) If True, converts the "Volume" column to float64 to avoid future warnings.
-  --move_col: (bool) If True, moves the "Adj Close" column to the end of the DataFrame.
-  --output_path: (str) Specifies the directory where the processed CSV will be saved.
+  - --verbose: (int) Controls the level of console output for visualization.
+  - --revert_order: (bool) If True, sorts the dataset by date in ascending order.
+  - --convert_to_float: (bool) If True, converts the "Volume" column to float64 to avoid future warnings.
+  - --move_col: (bool) If True, moves the "Adj Close" column to the end of the DataFrame.
+  - --output_path: (str) Specifies the directory where the processed CSV will be saved.
 
 ## Requirements
 - **Python 3.x**
