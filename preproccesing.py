@@ -4,11 +4,34 @@ import argparse
 from tkinter import filedialog
 
 """
-NOTE: Since Yahoo Finance no longer allows free downloads,
-   this script focuses only on preprocessing. The data will be obtained from Nasdaq.com.
+First of all you should donwload the dataset from ---> https://www.nasdaq.com/
+then save it in input folder of this repository.
 
-   
+NOTE:
+This script preprocesses stock data obtained from Nasdaq.com by performing several cleaning and formatting operations:
+  - It loads a CSV file using a file dialog.
+  - It renames the "Close/Last" column to "Adj Close" and cleans price columns by removing '$' symbols.
+  - It optionally converts the "Volume" column from int64 to float64.
+  - It optionally sorts the dataset by date in ascending order (oldest date first).
+  - It optionally moves the "Adj Close" column to the end of the DataFrame.
+  - Finally, it saves the processed dataset to the specified output path.
+
+Required libraries:
+  - pandas (for data manipulation): install with 'pip install pandas'
+  - argparse (for command-line argument parsing, part of the Python standard library)
+  - tkinter (for file dialogs, included in the Python standard library)
+  - os (for file system operations, part of the Python standard library)
+
+Adjustable hyperparameters via argparse:
+  --verbose: (int) Controls the level of console output for visualization.
+  --revert_order: (bool) If True, sorts the dataset by date in ascending order.
+  --convert_to_float: (bool) If True, converts the "Volume" column to float64 to avoid future warnings.
+  --move_col: (bool) If True, moves the "Adj Close" column to the end of the DataFrame.
+  --output_path: (str) Specifies the directory where the processed CSV will be saved.
+  
+Ensure you have the required libraries installed before running the script.
 """
+
 #---------------------------------------- Preprocessing code ---------------------------------------#
 class Preprocessing:
     def __init__(self,
@@ -103,10 +126,7 @@ if __name__ =='__main__':
                             verbose = None ---> No prints for visualization in the terminal.
                             verbose = 1 ---> open_csv | visualize the opened dataset.
                             """)
-        
-        #** Windows and technical and others. **#
-        # NOTE : if revert_order is True, Sort the dataset by date in ascending order,
-        #        in other words the oldest date will be the first row in the dataset.
+
         parser.add_argument('--revert_order', type=bool, default=True, help='revert the date order in the dataset rows.')
         parser.add_argument('--convert_to_float', type=bool, default=True, help='convert volume column from int64 to float64 type.')
         parser.add_argument('--move_col', type=bool, default=True, help='move "Adj Close" column to the end.')

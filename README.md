@@ -3,6 +3,9 @@
 ## Overview
 This repository provides a simple Python script that serves as a free alternative to Yahoo Finance. The script preprocesses stock data obtained from Nasdaq.com by cleaning and formatting the dataset. Key operations include renaming columns, converting data types, sorting dates, and reordering columns. The processed data is then saved to an output folder for further analysis.
 
+First of all you should donwload the dataset from ---> https://www.nasdaq.com/
+then save it in input folder of this repository.
+
 This script preprocesses stock data obtained from Nasdaq.com by performing several cleaning and formatting operations:
   - It loads a CSV file using a file dialog.
   - It renames the "Close/Last" column to "Adj Close" and cleans price columns by removing '$' symbols.
